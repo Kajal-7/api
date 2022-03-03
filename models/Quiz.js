@@ -32,6 +32,10 @@ const quizSchema = new mongoose.Schema({
     submissions:{
         type: Array, //of type subArray
         default: []
+    },
+    courseId:{
+        type: String,
+        required: true
     }
     
 },{timestamps: true});

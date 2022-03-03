@@ -13,6 +13,14 @@ const classSchema = new mongoose.Schema({
     },
     date:{
         type: Date,
+    },
+    presentStu:{
+        type: Array, //array of student ids
+        default:[]
+    },
+    courseId:{
+        type:String,
+        required:true
     }
     
 },{timestamps: true});
