@@ -21,6 +21,14 @@ const userSchema = new mongoose.Schema({
     role : {
         type : String,
         required : true,
+    },
+    courses : {
+        type : Array,
+        default : []
+    },
+    personalEvents : {
+        type : Array,
+        default : []
     }
 },{timestamps: true});
 
