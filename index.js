@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const courseRoute = require("./routes/courses");
+const assignmentRoute=require("./routes/assignments");
 
 dotenv.config();
 app.use(express.json());
@@ -15,6 +16,7 @@ mongoose.connect(process.env.MONGO_URL, {
 
 app.use("/api/auth", authRoute);
 app.use("/api/course", courseRoute);
+app.use("/api/assignment",assignmentRoute);
 
 app.listen(1000, function(){
     console.log("Backend Running on port 1000");

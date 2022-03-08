@@ -6,15 +6,19 @@ const mongoose = require("mongoose");
 const assigSchema = new mongoose.Schema({
     title : {
         type : String, 
+        required : true
     }, 
     link: {
-        type: String
+        type: String,
+        required : true
     },
     issueDate: {
         type: Date,
+        
     },
     deadline: {
         type: Date,
+        required : true
     },
     submissions:{
         type: Array, //of type subArray
