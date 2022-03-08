@@ -6,6 +6,7 @@ const authRoute = require("./routes/auth");
 const courseRoute = require("./routes/courses");
 const assignmentRoute=require("./routes/assignments");
 const quizRoute= require("./routes/quiz");
+const classRoute = require("./routes/classes");
 
 dotenv.config();
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/course", courseRoute);
 app.use("/api/assignment",assignmentRoute);
 app.use("/api/quiz",quizRoute);
+app.use("/api/class", classRoute);
 
 app.listen(1000, function(){
     console.log("Backend Running on port 1000");

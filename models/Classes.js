@@ -19,8 +19,8 @@ const classSchema = new mongoose.Schema({
         default:[]
     },
     courseId:{
-        type:String,
-        required:true
+        type: String,
+        required: true
     }
     
 },{timestamps: true});

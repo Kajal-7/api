@@ -20,7 +20,7 @@ const quizSchema = new mongoose.Schema({
         type: Date,
     },
     duration:{
-        type: Date, //hours        
+        type: Number, //hours        
     },
     desc: {
         type: String
