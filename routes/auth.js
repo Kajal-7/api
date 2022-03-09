@@ -64,7 +64,6 @@ router.post("/login", async (req, res) => {
 
   router.put("/update/:id", async (req, res) => {
     try {
-      console.log(req.body)
         const updatedUser = await User.findByIdAndUpdate(
           req.params.id, {
             $set: req.body
