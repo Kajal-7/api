@@ -8,7 +8,7 @@ router.get("/courseid/:cid",async(req,res)=>{
         var query = { courseId: (req.params.cid) };
         const quiz= await Quiz.find(query);
         res.status(200).json(quiz);
-    } catch {
+    } catch (err) {
         res.status(500).json(err);
     }
 });

@@ -7,7 +7,7 @@ router.get("/",async(req,res)=>{
     try{
         const assignments= await Assignment.find();
         res.status(200).json(assignments);
-    }catch{
+    }catch (err){
         res.status(500).json(err);
     }
 });
@@ -18,7 +18,7 @@ router.get("/courseid/:cid",async(req,res)=>{
         var query = { courseId: (req.params.cid) };
         const assignment = await Assignment.find(query);
         res.status(200).json(assignment);
-    } catch {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
@@ -27,7 +27,7 @@ router.get("/:id", async (req, res) => {
     try {
         const assignment = await Assignment.findById(req.params.id);
         res.status(200).json(assignment);
-    } catch {
+    } catch (err) {
         res.status(500).json(err);
     }
 });

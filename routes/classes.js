@@ -19,7 +19,7 @@ router.get("/courseid/:cid",async(req,res)=>{
         var query = { courseId: (req.params.cid) };
         const classes =  await Classes.find(query);
         res.status(200).json(classes);
-    } catch {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
