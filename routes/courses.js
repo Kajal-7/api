@@ -1,6 +1,22 @@
 const router = require("express").Router();
 const Course = require("../models/Course");
 
+
+router.post("/", async(req, res) => {
+    try{
+         const newCourse = new Course({
+             name : req.name,
+             desc : req.desc,
+             image : req.image,
+             teacherId : req.teacherId
+         })
+        const course = await newCourse.save(); 
+        res.status(200).json(course);
+    } catch(err){
+        res.status(500).json(err);
+    }
+}
+)
 //Get a course
 
 router.get("/:id", async (req, res) => {
@@ -23,3 +39,4 @@ router.get("/courseName/:cid", async(req,res)=>{
     }
 });
 module.exports = router;
+
