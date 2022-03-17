@@ -5,10 +5,10 @@ const Course = require("../models/Course");
 router.post("/", async(req, res) => {
     try{
          const newCourse = new Course({
-             name : req.name,
-             desc : req.desc,
-             image : req.image,
-             teacherId : req.teacherId
+             name : req.body.name,
+             desc : req.body.desc,
+             image : req.body.image,
+             teacherId : req.body.teacherId
          })
         const course = await newCourse.save(); 
         res.status(200).json(course);
