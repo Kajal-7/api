@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 
+var Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
+
 const relationStuCourseSchema = new mongoose.Schema({
     studentId : {
-        type : String,
+        type : ObjectId,
         required : true,
     },
     courseId : {
-        type : String,
+        type : ObjectId,
         required : true,
     },
     attended : {
@@ -18,4 +21,4 @@ const relationStuCourseSchema = new mongoose.Schema({
 
 relationStuCourseSchema.index({ studentId: 1, courseId: 1}, { unique: true });
 
-module.exports = mongoose.model("RelStuCourse", relationStuCourseSchema);
+module.exports = mongoose.model("relationStuCourse", relationStuCourseSchema);
