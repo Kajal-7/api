@@ -1,6 +1,7 @@
 const router = require("express").Router();
+const req = require("express/lib/request");
 const Course = require("../models/Course");
-
+const RelationStuCourse = require("../models/RelationStuCourse")
 
 router.post("/", async(req, res) => {
     try{
@@ -10,11 +11,32 @@ router.post("/", async(req, res) => {
              image : req.body.image,
              teacherId : req.body.teacherId
          })
+
+         
         const course = await newCourse.save(); 
+        
         res.status(200).json(course);
     } catch(err){
         res.status(500).json(err);
     }
+}
+)
+
+router.post("/joinCourse", async(req, res) => {
+    try {
+        const course = await Course.findOneById(req.body.id);
+
+        if(!course){
+            res.status(400).json("Course Code is Invalid");   
+        }
+
+        const temp = RelationStuCourse
+        res.status(200).json(course);
+    } catch (err) {
+        res.status(500).json(err);
+    }  
+    
+    
 }
 )
 //Get a course
