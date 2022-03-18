@@ -25,7 +25,6 @@ const courseSchema = new mongoose.Schema({
     teacherId : {//stored by us as user will create the course and its id can be stored here
         type : String,
         required : true,
-        unique: true
     },
     assignment : {
         type : Array,  //contain ids of assignments
