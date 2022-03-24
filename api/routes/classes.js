@@ -24,5 +24,16 @@ router.get("/courseid/:cid",async(req,res)=>{
     }
 });
 
+//get class with specific id
+
+router.get("/:id", async (req, res) => {
+    try {
+        const classes = await Classes.findById(req.params.id);
+        res.status(200).json(classes);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+router.get("/")
 
 module.exports = router;
