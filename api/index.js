@@ -10,6 +10,10 @@ const classRoute = require("./routes/classes");
 const chatRoute = require("./routes/chat");
 const messageRoute = require("./routes/messages");
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
 dotenv.config();
 app.use(express.json());
 
@@ -28,4 +32,4 @@ app.use("/api/message", messageRoute);
 
 app.listen(1000, function(){
     console.log("Backend Running on port 1000");
-  });
+});

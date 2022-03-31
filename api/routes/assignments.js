@@ -32,4 +32,20 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+router.put("/submission/:id", async (req, res) => {
+    // console.log(req.body);
+    
+    try {
+        
+        const updated =   await Assignment.findByIdAndUpdate(
+            req.params.id, 
+            { $push: { submissions: req.body } },
+            {new : true},
+        );
+        res.status(200).json(updated);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 module.exports = router;
