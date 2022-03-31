@@ -1,13 +1,5 @@
 const mongoose = require("mongoose");
 const { stringify } = require("nodemon/lib/utils");
-// const announcement={
-//     descp: {
-//         type: String 
-//     },
-//     dateTime:{
-//         type: Date 
-//     },
-// }
 
 const courseSchema = new mongoose.Schema({
     name : {
