@@ -13,8 +13,7 @@ const assigSchema = new mongoose.Schema({
         required : true
     },
     issueDate: {
-        type: Date,
-        
+        type: Date,   
     },
     deadline: {
         type: Date,

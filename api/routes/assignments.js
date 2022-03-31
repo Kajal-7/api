@@ -32,9 +32,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.put("/submission/:id", async (req, res) => {
-    // console.log(req.body);
-    
+router.put("/submission/:id", async (req, res) => {    
     try {
         
         const updated =   await Assignment.findByIdAndUpdate(
@@ -44,6 +42,18 @@ router.put("/submission/:id", async (req, res) => {
         );
         res.status(200).json(updated);
     } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.post("/", async (req, res) => {
+    try {
+        // console.log(req.body);
+        const newAssign = new Assignment(req.body);
+        const response = await newAssign.save();
+
+        res.status(200).json(response);
+    } catch(err) {
         res.status(500).json(err);
     }
 })
