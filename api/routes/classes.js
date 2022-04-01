@@ -34,6 +34,16 @@ router.get("/:id", async (req, res) => {
         res.status(500).json(err);
     }
 });
-router.get("/")
+
+router.post("/", async (req, res) => {
+    try {
+        const newClass = new Classes(req.body);
+        const response = await newClass.save();
+        res.status(200).json(response);
+    } catch(err) {
+        res.send(500).json(err);
+    }
+    
+})
 
 module.exports = router;

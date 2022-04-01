@@ -7,10 +7,6 @@ const classSchema = new mongoose.Schema({
     endTime:{
         type: Date,
     },
-    link:{
-        type: String,
-        required: true
-    },
     date:{
         type: Date,
     },
