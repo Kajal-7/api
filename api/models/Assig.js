@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 // const subArray={
-//     studentId: String,
-//     link: String
+//     student: String,
+//     file: String
 // }
 const assigSchema = new mongoose.Schema({
     title : {
