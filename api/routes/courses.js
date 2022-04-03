@@ -7,24 +7,6 @@ const mongoose = require("mongoose");
 var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
-router.post("/", async(req, res) => {
-    try{
-         const newCourse = new Course({
-             name : req.body.name,
-             desc : req.body.desc,
-             image : req.body.image,
-             teacherId : req.body.teacherId
-         })
-
-         
-        const course = await newCourse.save(); 
-        res.status(200).json(course);
-    } catch(err){
-        res.status(500).json(err);
-    }
-}
-)
-
 router.post("/joinCourses/", async(req, res) => {
     
     try {

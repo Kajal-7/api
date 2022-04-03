@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 // const subArray={
-//     studentId: String,
-//     link: String
+//     student: String,
+//     file: String
 // }
 const assigSchema = new mongoose.Schema({
     title : {
@@ -13,8 +13,7 @@ const assigSchema = new mongoose.Schema({
         required : true
     },
     issueDate: {
-        type: Date,
-        
+        type: Date,   
     },
     deadline: {
         type: Date,
