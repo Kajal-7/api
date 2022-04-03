@@ -13,5 +13,15 @@ router.get("/courseid/:cid",async(req,res)=>{
     }
 });
 
+router.post("/", async(req, res) => {
+    try {
+        const newQuiz = new Quiz(req.body);
+        const response = await newQuiz.save();
+        res.status(200).json(response);
+    } catch(err) {
+        res.status(500).json(err);
+    }
+})
+
 
 module.exports = router;
