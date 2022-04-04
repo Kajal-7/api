@@ -46,4 +46,17 @@ router.post("/", async (req, res) => {
     
 })
 
+router.put("/updatePresentStu/:id" , async(req,res) =>{
+    try{
+        const updateStu = await Classes.findByIdAndUpdate(
+            req.params.id,{
+                $set : {presentStu : req.body}
+            }
+        );
+        return res.status(200).json(updateStu);
+    }catch(err){
+        return res.status(500).json(err);
+    }
+})
+
 module.exports = router;
