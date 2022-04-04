@@ -27,7 +27,6 @@ const quizSchema = new mongoose.Schema({
     },
     question:{
         type: Array, //of type que
-        default: []
     },
     submissions:{
         type: Array, //of type subArray
