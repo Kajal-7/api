@@ -10,6 +10,7 @@ const classRoute = require("./routes/classes");
 const chatRoute = require("./routes/chat");
 const messageRoute = require("./routes/messages");
 const materialRoute = require("./routes/material");
+const relationStuCourseRoute= require("./routes/relationStuCourse");
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json({limit: '50mb'}));
@@ -31,6 +32,8 @@ app.use("/api/class", classRoute);
 app.use("/api/chat", chatRoute);
 app.use("/api/message", messageRoute);
 app.use("/api/material", materialRoute);
+app.use("/api/relationStuCourse", relationStuCourseRoute);
+
 
 app.listen(1000, function(){
     console.log("Backend Running on port 1000");
