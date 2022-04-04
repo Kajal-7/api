@@ -35,21 +35,18 @@ router.get("/:id" , async(req,res) =>{
     }
 })
 
-router.post("/" , async(req , res) => {
-    const {userId , ans , marks} =req.body;
-    try{
-        const submission = new Quiz.submissions({
-            studentId : userId,
-            markedAns: ans,
-            totalMarks : marks,
-        });
-
-        const newSubmission = await submission.save();
-        res.status(200).json(newSubmission);
-    }catch(err){
-        res.status(500).json({message : {msgBody : "Error Occured!" , msgError : true}});
+router.put("/submission/:id", async (req, res) => {    
+    try {
+        
+        const updated =   await Quiz.findByIdAndUpdate(
+            req.params.id, 
+            { $push: { submissions: req.body } },
+            {new : true},
+        );
+        res.status(200).json(updated);
+    } catch (err) {
+        res.status(500).json(err);
     }
-})
-
+});
 
 module.exports = router;
