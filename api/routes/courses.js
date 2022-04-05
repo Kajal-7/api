@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
+    // join course from student side thus posting on db in RelationStuCourse Collection
 router.post("/joinCourses/", async(req, res) => {
     
     try {
@@ -44,6 +45,7 @@ router.post("/joinCourses/", async(req, res) => {
 }
 )
 
+//creating course and posting on db
 router.post("/", async (req, res) => {
     const {name, desc, image, teacherId} = req.body;
     try {

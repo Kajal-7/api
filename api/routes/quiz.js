@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const Course = require("../models/Course");
 const Quiz = require("../models/Quiz");
 
 
@@ -14,6 +13,7 @@ router.get("/courseid/:cid",async(req,res)=>{
     }
 });
 
+//Post new quiz in db
 router.post("/", async(req, res) => {
     try {
         const newQuiz = new Quiz(req.body);
@@ -35,6 +35,7 @@ router.get("/:id" , async(req,res) =>{
     }
 })
 
+//updating submission array present in quiz
 router.put("/submission/:id", async (req, res) => {    
     try {
         

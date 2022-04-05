@@ -32,6 +32,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+//updating submissions in specific assignment
 router.put("/submission/:id", async (req, res) => {    
     try {
         
@@ -46,9 +47,9 @@ router.put("/submission/:id", async (req, res) => {
     }
 });
 
+//posting new assignment in db
 router.post("/", async (req, res) => {
     try {
-        // console.log(req.body);
         const newAssign = new Assignment(req.body);
         const response = await newAssign.save();
 

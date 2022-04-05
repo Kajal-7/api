@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/User");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt'); //used to generate hash for passwords
 
 //REGISTER 
 
@@ -62,6 +62,7 @@ router.post("/login", async (req, res) => {
     }
   });
 
+  //get user using user id
   router.get("/:id", async (req, res) => {
    
     try {
@@ -71,7 +72,8 @@ router.post("/login", async (req, res) => {
       res.status(500).json(err);
   }
   })
-
+ 
+  //updating user
   router.put("/update/:id", async (req, res) => {
     try {
         const updatedUser = await User.findByIdAndUpdate(

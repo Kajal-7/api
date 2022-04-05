@@ -24,7 +24,7 @@ router.get("/courseid/:cid",async(req,res)=>{
     }
 });
 
-//get class with specific id
+//get class with specific class id
 
 router.get("/:id", async (req, res) => {
     try {
@@ -35,6 +35,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+//post new class
 router.post("/", async (req, res) => {
     try {
         const newClass = new Classes(req.body);
@@ -46,6 +47,7 @@ router.post("/", async (req, res) => {
     
 })
 
+//update Present students array in class schema
 router.put("/updatePresentStu/:id" , async(req,res) =>{
     try{
         const updateStu = await Classes.findByIdAndUpdate(
