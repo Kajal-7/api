@@ -1,6 +1,4 @@
 const router = require("express").Router();
-const Course = require("../models/Course");
-const Class = require("../models/Classes");
 const RelStuCourse = require("../models/RelationStuCourse");
 
 //get student with specific course id
@@ -14,3 +12,4 @@ router.get("/courseId/:cid" , async(req,res) =>{
     }
 })
 
+module.exports = router;
